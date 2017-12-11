@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="jokajoka))" HorizontalAlignment="Left" Height="171" Margin="59,46,0,0" VerticalAlignment="Top" Width="400"/>
+        <Button Content="jokajoka)0)" HorizontalAlignment="Left" Height="171" Margin="59,46,0,0" VerticalAlignment="Top" Width="400"/>
 
     </Grid>
 </Window>
