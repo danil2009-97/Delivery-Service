@@ -1,0 +1,44 @@
+﻿<Page x:Class="DeliveryServiceUI.CartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DeliveryServiceUI"
+      xmlns:logic="clr-namespace:DeliveryServiceLogic;assembly=DeliveryServiceLogic"
+      mc:Ignorable="d" 
+      d:DesignHeight="570" d:DesignWidth="800"
+      Title="CartPage">
+
+    <Grid>
+        <ListBox x:Name="cartListBox" ToolTip="Нажмите дважды для удаления" Margin="0 0 0 40" MouseDoubleClick="cartListBox_MouseDoubleClick">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type logic:OrderedProduct}" >
+                    <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding Product.LogoPath}" Margin="5" Grid.RowSpan="3"/>
+                        <TextBlock x:Name="productNameTextBlock" Grid.Column="1" Text="{Binding Product.Name}"  FontWeight="Bold" FontSize="14"/>
+                        <TextBlock Text="Количество:" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" FontSize="12" Width="80"/>
+                        <TextBlock x:Name="quantityTextBox" Text="{Binding Quantity}" Grid.Column="1" Grid.Row="1" FontFamily="12" Margin="80 0 0 0"/>
+                        <TextBlock Text="Сумма (руб.):" HorizontalAlignment="Left"  Grid.Column="1" Grid.Row="2" FontSize="12" Width="80"/>
+                        <TextBlock x:Name="totalPriceTextBox" Text="{Binding TotalPrice}" Grid.Column="1" Grid.Row="2" FontFamily="12" Margin="80 0 0 0"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="orderButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Height="30" Content="Оформить заказ"/>
+    </Grid>
+</Page>

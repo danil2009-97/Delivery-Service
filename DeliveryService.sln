@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryServiceUI", "DeliveryServiceUI\DeliveryServiceUI.csproj", "{9BB67A88-0791-448D-9026-40DF62EDF2CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryServiceLogic", "DeliveryServiceLogic\DeliveryServiceLogic.csproj", "{FC3C0370-50A2-4229-B69F-68B8D37CD724}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9BB67A88-0791-448D-9026-40DF62EDF2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BB67A88-0791-448D-9026-40DF62EDF2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BB67A88-0791-448D-9026-40DF62EDF2CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3C0370-50A2-4229-B69F-68B8D37CD724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3C0370-50A2-4229-B69F-68B8D37CD724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3C0370-50A2-4229-B69F-68B8D37CD724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3C0370-50A2-4229-B69F-68B8D37CD724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

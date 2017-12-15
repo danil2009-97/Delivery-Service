@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DeliveryServiceLogic;
 
 namespace DeliveryServiceUI
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для OrderPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class OrderPage : Page
     {
-        public MainWindow()
+        public OrderPage()
         {
             InitializeComponent();
+            ordersListBox.ItemsSource = new List<Order> { new Order { DeliveredTime = DateTime.Now, OrderedTime = DateTime.Now, IsDelivered = false }, new Order { DeliveredTime = DateTime.Now, OrderedTime = DateTime.Now, IsDelivered = true } };
         }
     }
 }

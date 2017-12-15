@@ -1,0 +1,21 @@
+﻿<Window x:Class="DeliveryServiceUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeliveryServiceUI"
+        mc:Ignorable="d"
+        Title="Delivery Service" Height="600" Width="800" MinHeight="600" MinWidth="800"  >
+    <Grid>
+        <Grid Background="#FF8181C1" x:Name="menuGrid"  Visibility="Hidden" Height="30" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Button x:Name="homeButton" Margin="5" Content="Главная" Width="85" HorizontalAlignment="Left" Click="homeButton_Click"></Button>
+            <Button x:Name="cartButton" Margin="5 5 95 5" Content="Корзина" Width="85" HorizontalAlignment="Right" Click="cartButton_Click"></Button>
+            <Button x:Name="ordersButton" Content="Заказы" Margin="5" Width="85" HorizontalAlignment="Right" Click="ordersButton_Click"></Button>
+        </Grid>
+        <Frame x:Name="mainFrame" BorderThickness="0"  NavigationUIVisibility="Hidden" Margin="0 30 0 0">
+            <Frame.BorderBrush>
+                <SolidColorBrush Color="#FF8181C1"/>
+            </Frame.BorderBrush>
+        </Frame>
+    </Grid>
+</Window>

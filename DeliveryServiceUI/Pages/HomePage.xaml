@@ -1,0 +1,77 @@
+﻿<Page x:Class="DeliveryServiceUI.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DeliveryServiceUI"
+      xmlns:logic="clr-namespace:DeliveryServiceLogic;assembly=DeliveryServiceLogic"
+      mc:Ignorable="d" 
+      d:DesignHeight="570" d:DesignWidth="800"
+      Title="HomePage">
+
+    <Grid>
+        <Grid x:Name="sortGrid" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Категория: " VerticalAlignment="Center" Margin="5" FontSize="16"/>
+            <ComboBox x:Name="shopCategoriesComboBox" Margin="90 3 3 3" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12"/>
+            <TextBlock Text="Сортировка: " Grid.Column="1" VerticalAlignment="Center" Margin="5" FontSize="16"/>
+            <ComboBox x:Name="sortComboBox" Margin="100 3 3 3" HorizontalAlignment="Stretch" Grid.Column="1"  VerticalContentAlignment="Center" FontSize="12"/>
+            <TextBox x:Name="searchTextBox" Margin="3 3 30 3" VerticalContentAlignment="Center" FontSize="12" Grid.Column="4"/>
+            <Image HorizontalAlignment="Right" Grid.Column="2" Source="Images/search.png" Margin="3"/>            
+
+        </Grid>
+        <Grid x:Name="assortmentGrid" Margin="0 30 0 0">
+            <ListBox x:Name="assortmentListBox" HorizontalAlignment="Stretch" MouseDoubleClick="assortmentListBox_MouseDoubleClick" SelectionChanged="assortmentListBox_SelectionChanged">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.Resources>
+                    <DataTemplate DataType="{x:Type logic:Shop}">
+                        <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding LogoPath}" Margin="5" Grid.RowSpan="3"/>
+                            <TextBlock x:Name="shopNameTextBlock" Grid.Column="1" Text="{Binding Name}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="shopTypeTextBlock" Grid.Column="1" Text="{Binding Type}" Grid.Row="1"  FontSize="12"/>
+                            <TextBlock x:Name="shopRatingTextBlock" Margin="0 0 15 0" Grid.Column="1" Grid.Row="1" Text="{Binding RatingInfo}"  HorizontalAlignment="Right"  FontSize="14"/>
+                            <TextBlock Grid.Column="1" Text="Рейтинг:" Margin="0 0 3 0"  HorizontalAlignment="Right"  FontSize="14"/>
+                            <TextBlock x:Name="shopCheckTextBlock" Grid.Column="1" Text="{Binding AvgCheckInfo}"  Grid.Row="2"  FontSize="12"/>
+                        </Grid>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type logic:Product}">
+                        <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding LogoPath}" Margin="5" Grid.RowSpan="3"/>
+                            <TextBlock x:Name="productNameTextBlock" Grid.Column="1" Text="{Binding Name}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="productTypeTextBlock" Grid.Column="1" Text="{Binding Type}" Grid.Row="1"  FontSize="12"/>
+                            <TextBlock x:Name="productWeightTextBlock" Margin="0 0 5 0" Grid.Column="1" Grid.Row="1" Text="{Binding Weight}"  HorizontalAlignment="Right"  FontSize="14"/>
+                            <TextBlock Grid.Column="1" Text="Вес (в граммах):" Margin="0 0 3 0"  HorizontalAlignment="Right"  FontSize="14"/>
+                            <TextBlock x:Name="productPriceTextBlock" Grid.Column="1" Text="{Binding PriceInfo}"  Grid.Row="2"  FontSize="12"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.Resources>
+            </ListBox>
+        </Grid>
+    </Grid>
+</Page>
