@@ -19,6 +19,5 @@ namespace DeliveryServiceLogic
         public int PhoneNumber { get; set; }
 
         public bool IsAdmin { get; set; }
-
     }
 }
