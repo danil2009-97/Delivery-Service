@@ -8,29 +8,21 @@ namespace DeliveryServiceLogic
 {
     public class Order
     {
+        public int Id { get; set; }
+
         public User User { get; set; }
+
         public DateTime OrderedTime { get; set; }
+
         public DateTime DeliveredTime { get; set; }
+
         public bool IsDelivered { get; set; }
+
         public List<OrderedProduct> OrderedProducts { get; set; }
 
-        public string Code
-        {
-            get
-            {
-                return $"{RandomCode.rs.GetString(5)}";
-            }
-        }
+        public string Code => $"{RandomCode.rs.GetString(5)}";
 
-        public string StatusInfo
-        {
-            get
-            {
-                if (!IsDelivered)
-                    return "В ожидании";
-                else
-                    return "Доставлен";
-            }
-        }
+        public string StatusInfo => !IsDelivered ? "В ожидании" : "Доставлен";
+       
     }
 }

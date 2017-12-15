@@ -8,15 +8,13 @@ namespace DeliveryServiceLogic
 {
     public class OrderedProduct
     {
+        public int Id { get; set; }
+
         public Product Product { get; set; }
+
         public int Quantity { get; set; }
 
-        public double TotalPrice
-        {
-            get
-            {
-                return Product.Price * Quantity;
-            }
-        }
+        public double TotalPrice => Product.Price * Quantity;
+
     }
 }

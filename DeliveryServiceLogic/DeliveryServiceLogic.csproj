@@ -43,9 +43,11 @@
     <Compile Include="Order.cs" />
     <Compile Include="OrderedProduct.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductType.cs" />
     <Compile Include="RandomCode.cs" />
     <Compile Include="Shop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopType.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

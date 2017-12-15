@@ -31,8 +31,8 @@ namespace DeliveryServiceUI
 
         private List<OrderedProduct> FillListBox()
         {
-            var p1 = new Product { Name = "Pizze", Price = 450, Type = "Пицца", Weight = 810 };
-            var p2 = new Product { Name = "Cheese", Price = 299, Type = "Сыр", Weight = 200 };
+            var p1 = new Product { Name = "Pizze", Price = 450, Type =  new ProductType { Name = "Пицца" }, Weight = 810 };
+            var p2 = new Product { Name = "Cheese", Price = 299, Type = new ProductType { Name = "Сыр" }, Weight = 200 };
             var op1 = new OrderedProduct { Product = p1, Quantity = 2 };
             var op2 = new OrderedProduct { Product = p2, Quantity = 3 };
             return new List<OrderedProduct> { op1, op2 };
@@ -55,5 +55,6 @@ namespace DeliveryServiceUI
 
             }
         }
+      
     }
 }

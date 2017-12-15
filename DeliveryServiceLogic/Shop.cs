@@ -8,25 +8,23 @@ namespace DeliveryServiceLogic
 {
     public class Shop
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
-        public string Type { get; set; }
+
+        public ShopType Type { get; set; }
+
         public double Rating { get; set; }
+
         public int AvgCheck { get; set; }
+
         public string LogoPath { get; set; }
 
-        public string RatingInfo
-        {
-            get
-            {
-                return $"{Rating}/5";
-            }
-        }
-        public string AvgCheckInfo
-        {
-            get
-            {
-                return $"Средний чек: {AvgCheck} руб.";
-            }
-        }
+        public string Address { get; set; }
+
+        public string RatingInfo => $"{Rating}/5";
+     
+        public string AvgCheckInfo => $"Средний чек: {AvgCheck} руб.";
+       
     }
 }

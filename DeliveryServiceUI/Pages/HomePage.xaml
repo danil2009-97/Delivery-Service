@@ -21,7 +21,7 @@
             <TextBlock Text="Сортировка: " Grid.Column="1" VerticalAlignment="Center" Margin="5" FontSize="16"/>
             <ComboBox x:Name="sortComboBox" Margin="100 3 3 3" HorizontalAlignment="Stretch" Grid.Column="1"  VerticalContentAlignment="Center" FontSize="12"/>
             <TextBox x:Name="searchTextBox" Margin="3 3 30 3" VerticalContentAlignment="Center" FontSize="12" Grid.Column="4"/>
-            <Image HorizontalAlignment="Right" Grid.Column="2" Source="Images/search.png" Margin="3"/>            
+            <Image HorizontalAlignment="Right" Grid.Column="2" Source="/Images/search.png" Margin="3"/>            
 
         </Grid>
         <Grid x:Name="assortmentGrid" Margin="0 30 0 0">
@@ -45,7 +45,7 @@
                             </Grid.RowDefinitions>
                             <Image Source="{Binding LogoPath}" Margin="5" Grid.RowSpan="3"/>
                             <TextBlock x:Name="shopNameTextBlock" Grid.Column="1" Text="{Binding Name}"  FontWeight="Bold" FontSize="14"/>
-                            <TextBlock x:Name="shopTypeTextBlock" Grid.Column="1" Text="{Binding Type}" Grid.Row="1"  FontSize="12"/>
+                            <TextBlock x:Name="shopTypeTextBlock" Grid.Column="1" Text="{Binding Type.Name}" Grid.Row="1"  FontSize="12"/>
                             <TextBlock x:Name="shopRatingTextBlock" Margin="0 0 15 0" Grid.Column="1" Grid.Row="1" Text="{Binding RatingInfo}"  HorizontalAlignment="Right"  FontSize="14"/>
                             <TextBlock Grid.Column="1" Text="Рейтинг:" Margin="0 0 3 0"  HorizontalAlignment="Right"  FontSize="14"/>
                             <TextBlock x:Name="shopCheckTextBlock" Grid.Column="1" Text="{Binding AvgCheckInfo}"  Grid.Row="2"  FontSize="12"/>
@@ -64,7 +64,7 @@
                             </Grid.RowDefinitions>
                             <Image Source="{Binding LogoPath}" Margin="5" Grid.RowSpan="3"/>
                             <TextBlock x:Name="productNameTextBlock" Grid.Column="1" Text="{Binding Name}"  FontWeight="Bold" FontSize="14"/>
-                            <TextBlock x:Name="productTypeTextBlock" Grid.Column="1" Text="{Binding Type}" Grid.Row="1"  FontSize="12"/>
+                            <TextBlock x:Name="productTypeTextBlock" Grid.Column="1" Text="{Binding Type.Name}" Grid.Row="1"  FontSize="12"/>
                             <TextBlock x:Name="productWeightTextBlock" Margin="0 0 5 0" Grid.Column="1" Grid.Row="1" Text="{Binding Weight}"  HorizontalAlignment="Right"  FontSize="14"/>
                             <TextBlock Grid.Column="1" Text="Вес (в граммах):" Margin="0 0 3 0"  HorizontalAlignment="Right"  FontSize="14"/>
                             <TextBlock x:Name="productPriceTextBlock" Grid.Column="1" Text="{Binding PriceInfo}"  Grid.Row="2"  FontSize="12"/>

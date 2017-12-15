@@ -26,7 +26,7 @@ namespace DeliveryServiceUI
         public HomePage()
         {
             InitializeComponent();
-            shopList = FillTheListBoxBitch();
+            shopList = FillTheListBox();
             shopCategoriesComboBox.ItemsSource = FillTypesPlsThx();
             sortComboBox.ItemsSource = SortList();
             RefreshShopListBox();
@@ -37,12 +37,12 @@ namespace DeliveryServiceUI
             assortmentListBox.ItemsSource = shopList;
         }
 
-        private List<Shop> FillTheListBoxBitch()
+        private List<Shop> FillTheListBox()
         {
             var shops = new List<Shop>
             {
-                new Shop{Name="CarloPesto", /*LogoPath="Images/preview.jpg"*/ Rating=4, Type="Итальянский шлак", AvgCheck=700},
-                new Shop{Name="La'Perie DeNavaln'ie", /*LogoPath="Images/logo_small.jpg"*/ Rating =4.5, Type="Лягушки", AvgCheck=1200 },
+                new Shop{Name="CarloPesto", LogoPath="/Images/search.png", Rating = 4, Type = new ShopType{ Name = "Итальянская еда" }, AvgCheck=700},
+                new Shop{Name="La'Perie DeNavaln'ie", LogoPath="/Images/search.png", Rating = 4.5, Type= new ShopType{ Name = "Французская еда" }, AvgCheck=1200 },
             };
             return shops;
         }
@@ -69,9 +69,9 @@ namespace DeliveryServiceUI
             {
                 assortmentListBox.ItemsSource = new List<Product>
                 {
-                    new Product{Name="Pizze", Price=450, Type="Пицца", Weight=810},
-                    new Product{Name="Cheese", Price=299, Type="Сыр", Weight=200},
-                    new Product{Name="Бургер", Price=24523452345, Type="ФастФуд", Weight=13}
+                    new Product{Name="Pizze", Price=450, Type= new ProductType { Name= "Пицца" }, Weight=810},
+                    new Product{Name="Cheese", Price=299, Type = new ProductType { Name = "Сыр" }, Weight=200},
+                    new Product{Name="Бургер", Price=24523452345, Type = new ProductType { Name = "ФастФуд" }, Weight=13}
                 };
             }
             else
