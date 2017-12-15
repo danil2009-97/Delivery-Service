@@ -39,6 +39,6 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button x:Name="orderButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Height="30" Content="Оформить заказ"/>
+        <Button x:Name="orderButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" Height="30" Content="Оформить заказ" Click="orderButton_Click" />
     </Grid>
 </Page>

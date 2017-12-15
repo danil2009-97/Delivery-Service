@@ -55,6 +55,11 @@ namespace DeliveryServiceUI
 
             }
         }
-      
+
+        private void orderButton_Click(object sender, RoutedEventArgs e)
+        {
+            var mapWindow = new MapWindow();
+            mapWindow.ShowDialog();
+        }
     }
 }

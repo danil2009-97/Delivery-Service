@@ -1,0 +1,39 @@
+﻿<Window x:Class="DeliveryServiceUI.MapWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeliveryServiceUI"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+        Title="Выберите адрес доставки" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Height="500" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="200"/>            
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <TextBlock Text="Город:" Margin="3" FontSize="12"/>
+            <TextBox Margin="3" Height="20" VerticalContentAlignment="Center" FontSize="12" x:Name="cityTextBox"/>
+            <TextBlock Text="Улица:" Height="20" Margin="3" FontSize="12"/>
+            <TextBox Height="20" Margin="3"  x:Name="streetTextBox"/>
+            <TextBlock Text="Дом:" Height="20" Margin="3" FontSize="12"/>
+            <TextBox Height="20" Margin="3" x:Name="buildingTextBox"/>
+            <TextBlock Text="Квартира:" Height="20" Margin="3" FontSize="12"/>
+            <TextBox Height="20" Margin="3" x:Name="flatTextBox"/>
+            <Button x:Name="confirmAddressButton" Content="Подтвердить адрес" Height="30" Margin="3 220 3 3"/>
+        </StackPanel>
+        <Grid>
+            <m:Map HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" x:Name="myMap"
+               Language="ru-RU"
+               Center="37.1481402218342,-119.644248783588"
+               ZoomLevel="6" 
+               Grid.Column="1"
+               Mode="AerialWithLabels"
+               MouseDoubleClick="MapWithPushpins_MouseDoubleClick"
+               CredentialsProvider="aE6WcyZB1k73jIDR0JSs~WEFGdo28qs9ewZgD2_wqhQ~AuejjdIfnOgOaWrUQfCHVcwQYKGN0Py3IGCFNhL9caszY_FleTgt0BYYv6aO-c6X" 
+               />
+        </Grid>
+        
+    </Grid>
+</Window>
