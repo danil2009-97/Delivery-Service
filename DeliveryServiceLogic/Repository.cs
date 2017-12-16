@@ -24,7 +24,7 @@ namespace DeliveryServiceLogic
         {
             using (var context = new Context())
             {
-                _items = context.Shops.Include("Products").Include("Type").ToList();
+                _items = context.Shops.Include("Products").Include("Type").Include("Products.Type").ToList();
             }
         }
     }
