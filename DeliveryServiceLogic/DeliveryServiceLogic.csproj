@@ -82,5 +82,9 @@
       <DependentUpon>201712152135387_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="MapControl\Microsoft.Maps.MapControl.WPF.dll" />
+    <Resource Include="MapControl\Microsoft.Maps.MapControl.WPF.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

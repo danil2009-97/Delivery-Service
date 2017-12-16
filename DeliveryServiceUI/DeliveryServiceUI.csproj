@@ -161,5 +161,10 @@
   <ItemGroup>
     <Resource Include="Images\search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="MapControl\Microsoft.Maps.MapControl.WPF.dll" />
+    <Resource Include="MapControl\Microsoft.Maps.MapControl.WPF.xml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
