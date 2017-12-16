@@ -46,18 +46,9 @@ namespace DeliveryServiceUI
 
             //Convert the mouse coordinates to a locatoin on the map
             var pinLocation = myMap.ViewportPointToLocation(mousePosition);
-            string test = pinLocation.ToString();
-            string[] array = test.Split(new Char[] { ',' });
+            string test = pinLocation.ToString();           
 
-            string str = $"{array[0]},{array[1]}";
-
-           
-
-            double x = double.Parse(str);
-            double y = Convert.ToDouble(array[2]+","+array[3]);
-
-            AddressResult ar = gh.ReverseGeocode(x, y);
-            //var address = ar.AddressLine.Split(new Char[] { ',' });
+            AddressResult ar = gh.GetAddress(test);           
             cityTextBox.Text = ar.Locality;
             streetTextBox.Text = ar.AddressLine;
 

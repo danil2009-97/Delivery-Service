@@ -17,14 +17,19 @@ namespace DeliveryServiceLogic
         {
             using (var client = new WebClient())
             {
-                var latstr = latitude.ToString().Split(new char[] { ',' });
-                var strLat = latstr[0] + "." + latstr[1];
+                string lat = latitude.ToString();
+                string lon = longitude.ToString();
 
-                var longstr = longitude.ToString().Split(new char[] { ',' });
-                var strLong = longstr[0] + "." + longstr[1];
+                if (!lat.Contains("."))
+                {
+                    var latstr = latitude.ToString().Split(new char[] { ',' });
+                    lat = latstr[0] + "." + latstr[1];
 
-                var longi = $"{longitude / 1},{longitude % 1}";
-                var queryString = "http://dev.virtualearth.net/REST/v1/Locations/" + strLat + "," + strLong + "?key=aE6WcyZB1k73jIDR0JSs~WEFGdo28qs9ewZgD2_wqhQ~AuejjdIfnOgOaWrUQfCHVcwQYKGN0Py3IGCFNhL9caszY_FleTgt0BYYv6aO-c6X";
+                    var longstr = longitude.ToString().Split(new char[] { ',' });
+                    lon = longstr[0] + "." + longstr[1];
+                }
+
+                var queryString = "http://dev.virtualearth.net/REST/v1/Locations/" + lat + "," + lon + "?key=aE6WcyZB1k73jIDR0JSs~WEFGdo28qs9ewZgD2_wqhQ~AuejjdIfnOgOaWrUQfCHVcwQYKGN0Py3IGCFNhL9caszY_FleTgt0BYYv6aO-c6X";
 
                 string response = client.DownloadString(queryString);
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));
@@ -39,6 +44,26 @@ namespace DeliveryServiceLogic
                     };
                 }
             }
+        }
+
+        public AddressResult GetAddress(string location)
+        {
+            GeocodeHelper gh = new GeocodeHelper();
+            string[] array = location.Split(new Char[] { ',' });
+            double x, y;
+
+            if (location.Contains("."))
+            {               
+                x = Convert.ToDouble(array[0]);
+                y = Convert.ToDouble(array[1]);
+            }
+            else
+            {
+                x = Convert.ToDouble(array[0] + "," + array[1]);
+                y = Convert.ToDouble(array[2] + "," + array[3]);
+            }
+
+            return gh.ReverseGeocode(x, y);
         }
     }
 }
