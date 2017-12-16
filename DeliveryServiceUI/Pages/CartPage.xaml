@@ -10,15 +10,15 @@
       Title="CartPage">
 
     <Grid>
-        <ListBox x:Name="cartListBox" ToolTip="Нажмите дважды для удаления" Margin="0 0 0 40" MouseDoubleClick="cartListBox_MouseDoubleClick" >
+        <ListBox x:Name="cartListBox"  Margin="0 0 0 40" MouseDoubleClick="cartListBox_MouseDoubleClick" >
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
-            <ListBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type logic:OrderedProduct}" >
-                    <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
+            <ListBox.ItemTemplate >
+                <DataTemplate  DataType="{x:Type logic:OrderedProduct}" >
+                    <Grid x:Name="listBoxItemTemplate" ToolTip="Нажмите дважды для удаления" MinWidth="750" Height="60">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="*"/>

@@ -33,7 +33,7 @@
                 </ListBox.ItemContainerStyle>
                 <ListBox.Resources>
                     <DataTemplate DataType="{x:Type logic:Shop}">
-                        <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
+                        <Grid x:Name="listBoxItemTemplate" MinWidth="700" Height="60">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"/>
                                 <ColumnDefinition Width="*"/>
@@ -52,10 +52,10 @@
                         </Grid>
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type logic:Product}">
-                        <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
+                        <Grid x:Name="listBoxItemTemplate" MinWidth="700" Height="60">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"/>
-                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="320"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -67,7 +67,7 @@
                             <TextBlock x:Name="productNameTextBlock" Grid.Column="1" Text="{Binding Name}"  FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="productTypeTextBlock" Grid.Column="1" Text="{Binding Type.Name}" Grid.Row="1"  FontSize="12"/>
                             <Grid x:Name="grid"  Grid.Column="2" Grid.RowSpan="3" >
-                                <TextBlock  x:Name="productDescriptionTextBlock" Width="450" FontSize="12" Margin="5" Height="50"  Text="{Binding Description}"  HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" />
+                                <TextBlock  x:Name="productDescriptionTextBlock" Width="340" FontSize="12" Margin="5" Height="50"  Text="{Binding Description}"  HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" />
                             </Grid>                            
                             <TextBlock x:Name="productPriceTextBlock" Grid.Column="1" Text="{Binding PriceInfo}"  Grid.Row="2"   FontSize="12"/>
                         </Grid>
