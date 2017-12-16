@@ -63,7 +63,9 @@
     <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\RandomCode.cs" />
     <Compile Include="Entities\Shop.cs" />
+    <Compile Include="Factory.cs" />
     <Compile Include="GeocodeHelper.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201712152135387_Initial.cs" />
     <Compile Include="Migrations\201712152135387_Initial.Designer.cs">
       <DependentUpon>201712152135387_Initial.cs</DependentUpon>
@@ -80,6 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\ShopType.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

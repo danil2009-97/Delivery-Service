@@ -12,7 +12,7 @@ namespace DeliveryServiceLogic
 
         public string Name { get; set; }
 
-        public ProductType Type { get; set; }
+        public virtual ProductType Type { get; set; }
 
         public string Description { get; set; }
 

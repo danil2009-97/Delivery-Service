@@ -10,7 +10,7 @@ namespace DeliveryServiceLogic
     {
         public int Id { get; set; }
 
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
         public DateTime OrderedTime { get; set; }
 
@@ -18,7 +18,7 @@ namespace DeliveryServiceLogic
 
         public bool IsDelivered { get; set; }
 
-        public List<OrderedProduct> OrderedProducts { get; set; }
+        public virtual List<OrderedProduct> OrderedProducts { get; set; }
 
         public string Code => $"{RandomCode.rs.GetString(5)}";
 
