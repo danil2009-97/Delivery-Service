@@ -74,13 +74,9 @@
     <Compile Include="Migrations\201712161351476_DeleteUnnecessaryProperties.Designer.cs">
       <DependentUpon>201712161351476_DeleteUnnecessaryProperties.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712161506339_someFixes.cs" />
-    <Compile Include="Migrations\201712161506339_someFixes.Designer.cs">
-      <DependentUpon>201712161506339_someFixes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712161741548_nth.cs" />
-    <Compile Include="Migrations\201712161741548_nth.Designer.cs">
-      <DependentUpon>201712161741548_nth.cs</DependentUpon>
+    <Compile Include="Migrations\201712161806218_newMig.cs" />
+    <Compile Include="Migrations\201712161806218_newMig.Designer.cs">
+      <DependentUpon>201712161806218_newMig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,11 +95,8 @@
     <EmbeddedResource Include="Migrations\201712161351476_DeleteUnnecessaryProperties.resx">
       <DependentUpon>201712161351476_DeleteUnnecessaryProperties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712161506339_someFixes.resx">
-      <DependentUpon>201712161506339_someFixes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712161741548_nth.resx">
-      <DependentUpon>201712161741548_nth.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712161806218_newMig.resx">
+      <DependentUpon>201712161806218_newMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

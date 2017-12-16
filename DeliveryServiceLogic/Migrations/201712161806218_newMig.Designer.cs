@@ -7,13 +7,13 @@ namespace DeliveryServiceLogic.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class nth : IMigrationMetadata
+    public sealed partial class newMig : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(nth));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newMig));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712161741548_nth"; }
+            get { return "201712161806218_newMig"; }
         }
         
         string IMigrationMetadata.Source
