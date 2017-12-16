@@ -12,7 +12,9 @@ namespace DeliveryServiceLogic
 
         public string Name { get; set; }
 
-        public ShopType Type { get; set; }
+        public virtual ShopType Type { get; set; }
+
+        public virtual List<Product> Products { get; set; }
 
         public double Rating { get; set; }
 

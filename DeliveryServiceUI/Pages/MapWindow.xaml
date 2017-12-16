@@ -19,7 +19,7 @@
             <TextBox Height="20" Margin="3"  x:Name="addressTextBox"/>            
             <TextBlock Text="Квартира:" Height="20" Margin="3" FontSize="12"/>
             <TextBox Height="20" Margin="3" x:Name="flatTextBox"/>
-            <Button x:Name="confirmAddressButton" Content="Подтвердить адрес" Height="30" Margin="3 220 3 3"/>
+            <Button x:Name="confirmAddressButton" Content="Подтвердить адрес" Height="30" Margin="3 270 3 3"/>
         </StackPanel>
         <Grid>
             <m:Map HorizontalAlignment="Stretch" Margin="3" HorizontalContentAlignment="Stretch" x:Name="myMap"

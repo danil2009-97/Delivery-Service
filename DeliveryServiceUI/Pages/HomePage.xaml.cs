@@ -23,13 +23,15 @@ namespace DeliveryServiceUI
     {
         List<Shop> shopList;
 
+        IRepository<Product> productRepo = Factory.Default.GetRepository<Product>();
+        IRepository<Shop> shopRepo = Factory.Default.GetRepository<Shop>();
+
         public HomePage()
         {
             InitializeComponent();
-            shopList = FillTheListBox();
             shopCategoriesComboBox.ItemsSource = FillTypesPlsThx();
             sortComboBox.ItemsSource = SortList();
-            RefreshShopListBox();
+            assortmentListBox.ItemsSource = shopRepo.Data;
         }
 
         public void RefreshShopListBox()
@@ -67,12 +69,7 @@ namespace DeliveryServiceUI
         {
             if (assortmentListBox.SelectedItem is Shop)
             {
-                assortmentListBox.ItemsSource = new List<Product>
-                {
-                    new Product{Name="Pizze", Description="Диаметр: 30 см", Price=450, Type= new ProductType { Name= "Пицца" }},
-                    new Product{Name="Cheese", Price=299, Description="french", Type = new ProductType { Name = "Сыр" }},
-                    new Product{Name="Бургер", Price=24523452345, Type = new ProductType { Name = "ФастФуд" }} 
-                };
+                assortmentListBox.ItemsSource = productRepo.Data;
             }
             else
             {
