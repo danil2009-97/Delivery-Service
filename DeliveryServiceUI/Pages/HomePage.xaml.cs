@@ -79,5 +79,14 @@ namespace DeliveryServiceUI
                 addWindow.ShowDialog();
             }
         }
+
+        private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = searchTextBox.Text;
+            if (text == "")
+                assortmentListBox.ItemsSource = shopRepo.Data;
+            else
+                assortmentListBox.ItemsSource = shopRepo.FindAll(p => p.Name.ToLower().Contains(text));
+        }
     }
 }

@@ -11,6 +11,11 @@ namespace DeliveryServiceLogic
         protected List<T> _items = new List<T>();
 
         public IEnumerable<T> Data => _items;
+
+        public IEnumerable<T> FindAll(Predicate<T> predicate)
+        {
+            return _items.FindAll(predicate);
+        }
     }
 
     public class ShopRepository : Repository<Shop>
