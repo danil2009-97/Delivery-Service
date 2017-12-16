@@ -21,7 +21,6 @@ namespace DeliveryServiceUI
     /// </summary>
     public partial class HomePage : Page
     {
-        List<Shop> shopList;
 
         IRepository<Product> productRepo = Factory.Default.GetRepository<Product>();
         IRepository<Shop> shopRepo = Factory.Default.GetRepository<Shop>();
@@ -36,17 +35,7 @@ namespace DeliveryServiceUI
 
         public void RefreshShopListBox()
         {
-            assortmentListBox.ItemsSource = shopList;
-        }
-
-        private List<Shop> FillTheListBox()
-        {
-            var shops = new List<Shop>
-            {
-                new Shop{Name="CarloPesto", LogoPath="/Images/search.png", Rating = 4, Type = new ShopType{ Name = "Итальянская еда" }, AvgCheck=700},
-                new Shop{Name="La'Perie DeNavaln'ie", LogoPath="/Images/search.png", Rating = 4.5, Type= new ShopType{ Name = "Французская еда" }, AvgCheck=1200 },
-            };
-            return shops;
+            assortmentListBox.ItemsSource = shopRepo.Data;
         }
 
         private List<string> FillTypesPlsThx()
@@ -72,7 +61,7 @@ namespace DeliveryServiceUI
                 var selected = assortmentListBox.SelectedItem as Shop;
                 assortmentListBox.ItemsSource = selected.Products;
             }
-            else
+            else if (assortmentListBox.SelectedItem is Product)
             {
                 var pr = (Product)assortmentListBox.SelectedItem;
                 var addWindow = new AddToCartWindow(pr);
@@ -82,7 +71,7 @@ namespace DeliveryServiceUI
 
         private void searchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string text = searchTextBox.Text;
+            string text = searchTextBox.Text.ToLower();
             if (text == "")
                 assortmentListBox.ItemsSource = shopRepo.Data;
             else
