@@ -26,8 +26,9 @@
         <Grid>
             <m:Map HorizontalAlignment="Stretch" Margin="3" HorizontalContentAlignment="Stretch" x:Name="myMap"
                Language="ru-RU"
-               Center="37.1481402218342,-119.644248783588"
-               ZoomLevel="6" 
+                   
+               Center="55.7536384114609,37.6235729316891"
+               ZoomLevel="11" 
                Grid.Column="1"
                Mode="AerialWithLabels"
                MouseDoubleClick="MapWithPushpins_MouseDoubleClick"
