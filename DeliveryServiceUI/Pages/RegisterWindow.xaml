@@ -1,0 +1,33 @@
+﻿<Window x:Class="DeliveryServiceUI.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeliveryServiceUI"
+        mc:Ignorable="d"
+        Title="Регистрация" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Height="200" Width="410">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Имя пользователя:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Row="0"/>
+        <TextBlock Text="E-mail:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Row="1"/>
+        <TextBlock Text="Пароль:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Row="2"/>
+        <TextBlock Text="Номер телефона:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Row="3"/>
+        <TextBox x:Name="userNameTextBox" Grid.Column="1" Grid.Row="0" Margin="3" VerticalContentAlignment="Center" FontSize="12"/>
+        <TextBox x:Name="userEmailTextBox" Grid.Column="1" Grid.Row="1" Margin="3" VerticalContentAlignment="Center" FontSize="12"/>
+        <PasswordBox x:Name="userPasswordBox" Grid.Column="1" Grid.Row="2" Margin="3" VerticalContentAlignment="Center" FontSize="12"/>
+        <TextBlock Text="+7" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="3"/>
+        <TextBox x:Name="userPhoneTextBox" Grid.Column="1" Grid.Row="3" Margin="25 3 3 3" VerticalContentAlignment="Center" FontSize="12"/>
+        <Button x:Name="cancelButton" Content="Отмена" VerticalAlignment="Bottom" Grid.Row="4" Height="25" Width="100" Click="cancelButton_Click"/>
+        <Button x:Name="confirmButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="3" Content="Зарегистрироваться" Grid.Column="1" Grid.Row="4" Height="25" Width="120" Click="confirmButton_Click"/>
+    </Grid>
+</Window>

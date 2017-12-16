@@ -31,5 +31,11 @@ namespace DeliveryServiceUI
         {
             LoggedIn?.Invoke();
         }
+
+        private void registerButton_Click(object sender, RoutedEventArgs e)
+        {
+            var regWin = new RegisterWindow();
+            regWin.ShowDialog();
+        }
     }
 }

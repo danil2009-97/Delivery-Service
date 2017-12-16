@@ -20,8 +20,6 @@ namespace DeliveryServiceLogic
 
         public string LogoPath { get; set; }
 
-        public string Address { get; set; }
-
         public string RatingInfo => $"{Rating}/5";
      
         public string AvgCheckInfo => $"Средний чек: {AvgCheck} руб.";

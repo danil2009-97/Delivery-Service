@@ -15,10 +15,8 @@
         <StackPanel Grid.Column="1" Orientation="Vertical">
             <TextBlock Text="Город:" Margin="3" FontSize="12"/>
             <TextBox Margin="3" Height="20" VerticalContentAlignment="Center" FontSize="12" x:Name="cityTextBox"/>
-            <TextBlock Text="Улица:" Height="20" Margin="3" FontSize="12"/>
-            <TextBox Height="20" Margin="3"  x:Name="streetTextBox"/>
-            <TextBlock Text="Дом:" Height="20" Margin="3" FontSize="12"/>
-            <TextBox Height="20" Margin="3" x:Name="buildingTextBox"/>
+            <TextBlock Text="Адрес:" Height="20" Margin="3" FontSize="12"/>
+            <TextBox Height="20" Margin="3"  x:Name="addressTextBox"/>            
             <TextBlock Text="Квартира:" Height="20" Margin="3" FontSize="12"/>
             <TextBox Height="20" Margin="3" x:Name="flatTextBox"/>
             <Button x:Name="confirmAddressButton" Content="Подтвердить адрес" Height="30" Margin="3 220 3 3"/>

@@ -17,9 +17,7 @@ namespace DeliveryServiceLogic
         public string Description { get; set; }
 
         public double Price { get; set; }
-
-        public double Weight { get; set; }
-
+                
         public string LogoPath { get; set; }
 
         public string PriceInfo => $"{Price} руб.";

@@ -50,7 +50,7 @@ namespace DeliveryServiceUI
 
             AddressResult ar = gh.GetAddress(test);           
             cityTextBox.Text = ar.Locality;
-            streetTextBox.Text = ar.AddressLine;
+            addressTextBox.Text = ar.AddressLine;
 
             // The pushpin to add to the map.
             currentPushpin.Location = pinLocation;

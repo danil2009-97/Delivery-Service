@@ -36,12 +36,19 @@ namespace DeliveryServiceLogic
                 using (var es = new MemoryStream(Encoding.Unicode.GetBytes(response)))
                 {
                     var mapResponse = (ser.ReadObject(es) as Response);
-                    var location = (BingMapsRESTToolkit.Location)mapResponse.ResourceSets.First().Resources.First();
-                    return new AddressResult()
+                    try
                     {
-                        AddressLine = location.Address.AddressLine,
-                        Locality = location.Address.Locality,
-                    };
+                        var location = (BingMapsRESTToolkit.Location)mapResponse.ResourceSets.First().Resources.First();
+                        return new AddressResult()
+                        {
+                            AddressLine = location.Address.AddressLine,
+                            Locality = location.Address.Locality,
+                        };
+                    }
+                    catch
+                    {
+                        return new AddressResult();
+                    }
                 }
             }
         }

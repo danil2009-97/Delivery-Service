@@ -12,12 +12,11 @@ namespace DeliveryServiceLogic
 
         public string Name { get; set; }
 
-        public int Password { get; set; }
+        public string Password { get; set; }
 
         public string Email { get; set; }
 
-        public int PhoneNumber { get; set; }
-
-        public bool IsAdmin { get; set; }
+        public string PhoneNumber { get; set; }
+                
     }
 }
