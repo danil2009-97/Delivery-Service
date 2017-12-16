@@ -19,7 +19,7 @@ namespace DeliveryServiceLogic
         {
             using (var context = new Context())
             {
-                _items = context.Shops.ToList();
+                _items = context.Shops.Include("Products").Include("Type").ToList();
             }
         }
     }
@@ -30,7 +30,7 @@ namespace DeliveryServiceLogic
         {
             using (var context = new Context())
             {
-                _items = context.Products.ToList();
+                _items = context.Products.Include("Type").ToList();
             }
         }
     }

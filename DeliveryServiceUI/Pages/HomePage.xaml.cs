@@ -69,7 +69,8 @@ namespace DeliveryServiceUI
         {
             if (assortmentListBox.SelectedItem is Shop)
             {
-                assortmentListBox.ItemsSource = productRepo.Data;
+                var selected = assortmentListBox.SelectedItem as Shop;
+                assortmentListBox.ItemsSource = selected.Products;
             }
             else
             {
