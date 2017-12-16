@@ -17,7 +17,14 @@ namespace DeliveryServiceLogic
         {
             using (var client = new WebClient())
             {
-                var queryString = "http://dev.virtualearth.net/REST/v1/Locations/" + latitude.ToString() + "," + longitude.ToString() + "?key=aE6WcyZB1k73jIDR0JSs~WEFGdo28qs9ewZgD2_wqhQ~AuejjdIfnOgOaWrUQfCHVcwQYKGN0Py3IGCFNhL9caszY_FleTgt0BYYv6aO-c6X";
+                var latstr = latitude.ToString().Split(new char[] { ',' });
+                var strLat = latstr[0] + "." + latstr[1];
+
+                var longstr = longitude.ToString().Split(new char[] { ',' });
+                var strLong = longstr[0] + "." + longstr[1];
+
+                var longi = $"{longitude / 1},{longitude % 1}";
+                var queryString = "http://dev.virtualearth.net/REST/v1/Locations/" + strLat + "," + strLong + "?key=aE6WcyZB1k73jIDR0JSs~WEFGdo28qs9ewZgD2_wqhQ~AuejjdIfnOgOaWrUQfCHVcwQYKGN0Py3IGCFNhL9caszY_FleTgt0BYYv6aO-c6X";
 
                 string response = client.DownloadString(queryString);
                 DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));

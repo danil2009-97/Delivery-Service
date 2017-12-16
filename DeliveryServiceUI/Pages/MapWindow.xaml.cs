@@ -48,8 +48,13 @@ namespace DeliveryServiceUI
             var pinLocation = myMap.ViewportPointToLocation(mousePosition);
             string test = pinLocation.ToString();
             string[] array = test.Split(new Char[] { ',' });
-            double x = Convert.ToDouble(array[0]);
-            double y = Convert.ToDouble(array[1]);
+
+            string str = $"{array[0]},{array[1]}";
+
+           
+
+            double x = double.Parse(str);
+            double y = Convert.ToDouble(array[2]+","+array[3]);
 
             AddressResult ar = gh.ReverseGeocode(x, y);
             //var address = ar.AddressLine.Split(new Char[] { ',' });
