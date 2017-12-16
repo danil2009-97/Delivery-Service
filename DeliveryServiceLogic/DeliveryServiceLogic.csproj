@@ -62,22 +62,14 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\RandomCode.cs" />
-    <Compile Include="Entities\Shop.cs" />
+    <Compile Include="Migrations\201712161852435_Initial.cs" />
+    <Compile Include="Migrations\201712161852435_Initial.Designer.cs">
+      <DependentUpon>201712161852435_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Shop.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="GeocodeHelper.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201712152135387_Initial.cs" />
-    <Compile Include="Migrations\201712152135387_Initial.Designer.cs">
-      <DependentUpon>201712152135387_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712161351476_DeleteUnnecessaryProperties.cs" />
-    <Compile Include="Migrations\201712161351476_DeleteUnnecessaryProperties.Designer.cs">
-      <DependentUpon>201712161351476_DeleteUnnecessaryProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712161806218_newMig.cs" />
-    <Compile Include="Migrations\201712161806218_newMig.Designer.cs">
-      <DependentUpon>201712161806218_newMig.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\ShopType.cs" />
@@ -89,19 +81,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712152135387_Initial.resx">
-      <DependentUpon>201712152135387_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712161351476_DeleteUnnecessaryProperties.resx">
-      <DependentUpon>201712161351476_DeleteUnnecessaryProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712161806218_newMig.resx">
-      <DependentUpon>201712161806218_newMig.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="MapControl\Microsoft.Maps.MapControl.WPF.dll" />
     <Resource Include="MapControl\Microsoft.Maps.MapControl.WPF.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712161852435_Initial.resx">
+      <DependentUpon>201712161852435_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
