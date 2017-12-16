@@ -16,8 +16,8 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Категория: " VerticalAlignment="Center" Margin="5" FontSize="16"/>
-            <ComboBox x:Name="shopCategoriesComboBox" Margin="90 3 3 3" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12"/>
+            <TextBlock Text="Кухня: " VerticalAlignment="Center" Margin="5" FontSize="16"/>
+            <ComboBox x:Name="shopCategoriesComboBox" Margin="60 3 3 3" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="12"/>
             <TextBlock Text="Сортировка: " Grid.Column="1" VerticalAlignment="Center" Margin="5" FontSize="16"/>
             <ComboBox x:Name="sortComboBox" Margin="100 3 3 3" HorizontalAlignment="Stretch" Grid.Column="1"  VerticalContentAlignment="Center" FontSize="12"/>
             <TextBox x:Name="searchTextBox" Margin="3 3 30 3" VerticalContentAlignment="Center" FontSize="12" Grid.Column="4"/>
@@ -25,7 +25,7 @@
 
         </Grid>
         <Grid x:Name="assortmentGrid" Margin="0 30 0 0">
-            <ListBox x:Name="assortmentListBox" HorizontalAlignment="Stretch" MouseDoubleClick="assortmentListBox_MouseDoubleClick" SelectionChanged="assortmentListBox_SelectionChanged">
+            <ListBox x:Name="assortmentListBox"  MouseDoubleClick="assortmentListBox_MouseDoubleClick" SelectionChanged="assortmentListBox_SelectionChanged">
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -55,7 +55,8 @@
                         <Grid x:Name="listBoxItemTemplate" MinWidth="750" Height="60">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="80"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="20"/>
@@ -65,9 +66,10 @@
                             <Image Source="{Binding LogoPath}" Margin="5" Grid.RowSpan="3"/>
                             <TextBlock x:Name="productNameTextBlock" Grid.Column="1" Text="{Binding Name}"  FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="productTypeTextBlock" Grid.Column="1" Text="{Binding Type.Name}" Grid.Row="1"  FontSize="12"/>
-                            <TextBlock x:Name="productWeightTextBlock" Margin="0 0 5 0" Grid.Column="1" Grid.Row="1" Text="{Binding Weight}"  HorizontalAlignment="Right"  FontSize="14"/>
-                            <TextBlock Grid.Column="1" Text="Вес (в граммах):" Margin="0 0 3 0"  HorizontalAlignment="Right"  FontSize="14"/>
-                            <TextBlock x:Name="productPriceTextBlock" Grid.Column="1" Text="{Binding PriceInfo}"  Grid.Row="2"  FontSize="12"/>
+                            <Grid x:Name="grid"  Grid.Column="2" Grid.RowSpan="3" >
+                                <TextBlock  x:Name="productDescriptionTextBlock" Width="450" FontSize="12" Margin="5" Height="50"  Text="{Binding Description}"  HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" />
+                            </Grid>                            
+                            <TextBlock x:Name="productPriceTextBlock" Grid.Column="1" Text="{Binding PriceInfo}"  Grid.Row="2"   FontSize="12"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.Resources>

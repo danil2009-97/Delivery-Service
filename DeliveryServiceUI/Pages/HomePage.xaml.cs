@@ -69,9 +69,9 @@ namespace DeliveryServiceUI
             {
                 assortmentListBox.ItemsSource = new List<Product>
                 {
-                    new Product{Name="Pizze", Price=450, Type= new ProductType { Name= "Пицца" }},
-                    new Product{Name="Cheese", Price=299, Type = new ProductType { Name = "Сыр" }},
-                    new Product{Name="Бургер", Price=24523452345, Type = new ProductType { Name = "ФастФуд" }}
+                    new Product{Name="Pizze", Description="Диаметр: 30 см", Price=450, Type= new ProductType { Name= "Пицца" }},
+                    new Product{Name="Cheese", Price=299, Description="french", Type = new ProductType { Name = "Сыр" }},
+                    new Product{Name="Бургер", Price=24523452345, Type = new ProductType { Name = "ФастФуд" }} 
                 };
             }
             else
