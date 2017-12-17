@@ -154,7 +154,7 @@ namespace DeliveryServiceLogic
             Data.Remove(us);
         }
 
-        public void UpdateStatus(User us)
+        public void UpdateUser(User us)
         {
             using (var context = new Context())
             {

@@ -27,6 +27,8 @@ namespace DeliveryServiceLogic
             Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data.Clear();
         }
 
+
+
         public bool IsNumber(string txt, int len)
         {
             long n;
