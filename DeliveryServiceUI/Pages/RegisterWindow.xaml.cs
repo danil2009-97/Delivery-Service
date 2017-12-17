@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DeliveryServiceLogic;
+using System.Security.Cryptography;
 
 namespace DeliveryServiceUI
 {
@@ -20,7 +21,7 @@ namespace DeliveryServiceUI
     /// </summary>
     public partial class RegisterWindow : Window
     {
-
+        Methods methods = new Methods();
         public RegisterWindow()
         {
             InitializeComponent();
@@ -33,14 +34,15 @@ namespace DeliveryServiceUI
                 Close();
         }
 
+      
+
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
-            User newUser = null;
             string phone = userPhoneTextBox.Text;
             long num;
-            if (long.TryParse(phone, out num) && phone.Count()==10)
+            if (long.TryParse(phone, out num) && phone.Count() == 10)
             {
-                newUser = new User { Name = userNameTextBox.Text, Password = userPasswordBox.Password, Email = userEmailTextBox.Text, PhoneNumber = phone };
+                User newUser = new User { Name = userNameTextBox.Text, Password = Methods.methods.CalculateHash(userPasswordBox.Password), Email = userEmailTextBox.Text, PhoneNumber = phone };
                 MessageBox.Show("Вы успешно зарегистрировались", "Регистрация завершена", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }

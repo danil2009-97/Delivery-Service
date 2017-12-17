@@ -93,14 +93,69 @@ namespace DeliveryServiceLogic
         public override void AddItem(Order ord)
         {
             using (var context = new Context())
+            {
                 context.Set<Order>().Add(ord);
+                context.SaveChanges();
+            }
+                
             Data.Add(ord);
         }
         public override void RemoveItem(Order ord)
         {
             using (var context = new Context())
-                context.Set<Order>().Remove(ord);
+            {
+                context.Set<Order>().Remove(context.Set<Order>().FirstOrDefault(o => ord.Id == o.Id));
+                context.SaveChanges();
+            }
+              
             Data.Remove(ord);
+        }
+
+        public void UpdateStatus(Order ord)
+        {
+            using (var context = new Context())
+            {
+                (context.Set<Order>().FirstOrDefault(o => o.Id == ord.Id)).IsDelivered = true;
+                context.SaveChanges();
+            }
+        }
+    }
+
+    public class UserRepo : RepositoryCRUD<User>
+    {
+        public override void AddItem(User us)
+        {
+            using (var context = new Context())
+            {
+                context.Set<User>().Add(us);
+                context.SaveChanges();
+            }
+
+            Data.Add(us);
+        }
+        public override void RemoveItem(User us)
+        {
+            using (var context = new Context())
+            {
+                context.Set<User>().Remove(context.Set<User>().FirstOrDefault(o => us.Id == o.Id));
+                context.SaveChanges();
+            }
+
+            Data.Remove(us);
+        }
+
+        public void UpdateStatus(User us)
+        {
+            using (var context = new Context())
+            {
+                var currUs = (context.Set<User>().FirstOrDefault(o => o.Id == us.Id));
+                currUs.Name = us.Name;
+                currUs.Password = us.Password;
+                currUs.PhoneNumber = us.PhoneNumber;
+                context.SaveChanges();
+            }
+            Data.Remove(Data.FirstOrDefault(u => u.Id == us.Id));
+            Data.Add(us);
         }
     }
 
