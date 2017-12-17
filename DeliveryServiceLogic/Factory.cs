@@ -32,16 +32,16 @@ namespace DeliveryServiceLogic
                 return (IRepository<T>)new ShopTypeRepo();
             else if (typeof(T) == typeof(ProductType))
                 return (IRepository<T>)new ProductTypeRepo();
-            else if (typeof(T) == typeof(OrderedProduct))
-                return (IRepository<T>)new OrderedProduct();
             else
                 throw new Exception("No repository");
         }
 
+        private IRepositoryCRUD<OrderedProduct> orderedProductRepo;
+
         public IRepositoryCRUD<T> GetRepositoryCRUD<T>()
         {
             if (typeof(T) == typeof(OrderedProduct))
-                return (IRepositoryCRUD<T>)new OrderedProduct();
+                return (IRepositoryCRUD<T>)orderedProductRepo ?? ((orderedProductRepo = new OrderedProductRepo()) as IRepositoryCRUD<T>);
             else
                 throw new Exception("No repository");
         }

@@ -47,16 +47,12 @@ namespace DeliveryServiceUI
                     Product = product,
                     Quantity = (int)n
                 };
-                var orderedRepo = Factory.Default.GetRepositoryCRUD<OrderedProduct>();
-                orderedRepo.AddItem(newproduct);
-
+                Factory.Default.GetRepositoryCRUD<OrderedProduct>().AddItem(newproduct);
                 //save to db
                 Close();
             }
             else
                 MessageBox.Show("Введите корректное значение количества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-
-
         }
 
         private void productQuantityTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -66,7 +62,6 @@ namespace DeliveryServiceUI
                 totalPriceTextBox.Text = (n * product.Price).ToString();
             else
                 totalPriceTextBox.Text = "";
-
         }
     }
 }

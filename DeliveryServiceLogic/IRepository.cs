@@ -8,7 +8,7 @@ namespace DeliveryServiceLogic
 {
     public interface IRepository<T> 
     {
-        IEnumerable<T> Data { get; }
+        List<T> Data { get; }
         IEnumerable<T> FindAll(Predicate<T> predicate);
     }
 }

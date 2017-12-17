@@ -8,9 +8,9 @@ namespace DeliveryServiceLogic
 {
     public class Repository<T> : IRepository<T>
     {
-        protected List<T> _items = new List<T>();
+        protected List<T> _items;
 
-        public IEnumerable<T> Data => _items;
+        public List<T> Data => _items ?? (_items = new List<T>());
 
         public IEnumerable<T> FindAll(Predicate<T> predicate)
         {
@@ -44,7 +44,7 @@ namespace DeliveryServiceLogic
     {
         public ShopTypeRepo()
         {
-            using(var context = new Context())
+            using (var context = new Context())
             {
                 _items = context.ShopTypes.ToList();
             }
@@ -69,10 +69,10 @@ namespace DeliveryServiceLogic
             _items.Add(item);
         }
 
-        public void RemoveItem(T item)
+        public virtual void RemoveItem(T item)
         {
             _items.Remove(item);
-            
+
         }
     }
 
@@ -80,16 +80,15 @@ namespace DeliveryServiceLogic
     {
         public override void AddItem(OrderedProduct op)
         {
-            using (var context = new Context())
-            {
-                context.OrderedProducts.Add(op);
-                _items.Add(op);
-            }
-            
+            Data.Add(op);
+        }
+        public override void RemoveItem(OrderedProduct op)
+        {
+            Data.Remove(op);
         }
     }
- 
 
-    
+
+
 
 }

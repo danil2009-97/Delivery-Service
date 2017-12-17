@@ -21,22 +21,13 @@ namespace DeliveryServiceUI
     /// </summary>
     public partial class CartPage : Page
     {
-        List<OrderedProduct> oplist;
+        
         public CartPage()
         {
-            InitializeComponent();
-            oplist = FillListBox();
-            cartListBox.ItemsSource = oplist;
+            InitializeComponent();            
+            cartListBox.ItemsSource = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data; 
         }
-
-        private List<OrderedProduct> FillListBox()
-        {
-            var p1 = new Product { Name = "Pizze", Price = 450, Type =  new ProductType { Name = "Пицца" }};
-            var p2 = new Product { Name = "Cheese", Price = 299, Type = new ProductType { Name = "Сыр" }};
-            var op1 = new OrderedProduct { Product = p1, Quantity = 2 };
-            var op2 = new OrderedProduct { Product = p2, Quantity = 3 };
-            return new List<OrderedProduct> { op1, op2 };
-        }
+              
 
         private void cartListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -47,12 +38,11 @@ namespace DeliveryServiceUI
 
                 if (res == MessageBoxResult.Yes)
                 {
-                    oplist.Remove(pr);
+                    Factory.Default.GetRepositoryCRUD<OrderedProduct>().RemoveItem(pr);
                     cartListBox.ItemsSource = null;
-                    cartListBox.ItemsSource = oplist;
+                    cartListBox.ItemsSource = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data; 
                 }
-                else { }
-
+                else { return; }
             }
         }
 
