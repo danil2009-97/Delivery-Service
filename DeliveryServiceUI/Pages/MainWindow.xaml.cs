@@ -52,5 +52,10 @@ namespace DeliveryServiceUI
         {
             mainFrame.NavigationService.Navigate(PageFactory.Instance.PageRepository.OrderPage);
         }
+
+        private void profileButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(PageFactory.Instance.PageRepository.ProfilePage);
+        }
     }
 }

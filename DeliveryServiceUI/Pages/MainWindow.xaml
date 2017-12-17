@@ -9,8 +9,9 @@
     <Grid>
         <Grid Background="#FF8181C1" x:Name="menuGrid"  Visibility="Hidden" Height="30" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <Button x:Name="homeButton" Margin="5" Content="Главная" Width="85" HorizontalAlignment="Left" Click="homeButton_Click"></Button>
-            <Button x:Name="cartButton" Margin="5 5 95 5" Content="Корзина" Width="85" HorizontalAlignment="Right" Click="cartButton_Click"></Button>
-            <Button x:Name="ordersButton" Content="Заказы" Margin="5" Width="85" HorizontalAlignment="Right" Click="ordersButton_Click"></Button>
+            <Button x:Name="cartButton" Margin="5 5 200 5" Content="Корзина" Width="85" HorizontalAlignment="Right" Click="cartButton_Click"></Button>
+            <Button x:Name="ordersButton" Content="Заказы" Margin="5 5 110 5" Width="85" HorizontalAlignment="Right" Click="ordersButton_Click"></Button>
+            <Button x:Name="profileButton" Click="profileButton_Click" Content="Личный кабинет" Width="100" HorizontalAlignment="Right" Margin="5"/>
         </Grid>
         <Frame x:Name="mainFrame" BorderThickness="0"  NavigationUIVisibility="Hidden" Margin="0 30 0 0">
             <Frame.BorderBrush>

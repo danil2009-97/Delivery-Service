@@ -12,6 +12,7 @@ namespace DeliveryServiceUI
         private HomePage _homePage;
         private CartPage _cartPage;
         private OrderPage _orderPage;
+        private ProfilePage _profilePage;
 
         public LoginPage LoginPage
         {
@@ -31,6 +32,11 @@ namespace DeliveryServiceUI
         public OrderPage OrderPage
         {
             get { return _orderPage ?? (_orderPage = new OrderPage()); }
+        }
+
+        public ProfilePage ProfilePage
+        {
+            get { return _profilePage ?? (_profilePage = new ProfilePage()); }
         }
     }
 }

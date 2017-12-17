@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DeliveryServiceUI"
         xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
-        Title="Выберите адрес доставки" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Height="500" Width="700">
+        Title="Выберите адрес доставки" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" Height="500" Width="700">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -19,7 +19,7 @@
             <TextBox Height="20" Margin="3"  x:Name="addressTextBox"/>            
             <TextBlock Text="Квартира:" Height="20" Margin="3" FontSize="12"/>
             <TextBox Height="20" Margin="3" x:Name="flatTextBox"/>
-            <Button x:Name="confirmAddressButton" Content="Подтвердить адрес" Height="30" Margin="3 270 3 3"/>
+            <Button x:Name="confirmAddressButton" Content="Подтвердить адрес" Height="30" Margin="3 270 3 3" Click="confirmAddressButton_Click"/>
         </StackPanel>
         <Grid>
             <m:Map HorizontalAlignment="Stretch" Margin="3" HorizontalContentAlignment="Stretch" x:Name="myMap"

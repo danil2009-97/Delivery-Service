@@ -58,5 +58,15 @@ namespace DeliveryServiceUI
             // Adds the pushpin to the map.
             myMap.Children.Add(currentPushpin);
         }
+
+        private void confirmAddressButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (true)
+            {
+                var pay = new PaymentWindow();
+                pay.CloseParent += this.Close;
+                pay.ShowDialog();
+            }
+        }
     }
 }
