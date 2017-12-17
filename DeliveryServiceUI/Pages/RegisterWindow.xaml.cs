@@ -22,6 +22,7 @@ namespace DeliveryServiceUI
     public partial class RegisterWindow : Window
     {
         Methods methods = new Methods();
+        List<User> userRepo = Factory.Default.GetRepositoryCRUD<User>().Data;
         public RegisterWindow()
         {
             InitializeComponent();
@@ -34,19 +35,23 @@ namespace DeliveryServiceUI
                 Close();
         }
 
-      
-
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
+            var user = userRepo.FirstOrDefault(u => u.Email == userEmailTextBox.Text);
             string phone = userPhoneTextBox.Text;
             long num;
             if (long.TryParse(phone, out num) && phone.Count() == 10)
             {
-                User newUser = new User { Name = userNameTextBox.Text, Password = Methods.methods.CalculateHash(userPasswordBox.Password), Email = userEmailTextBox.Text, PhoneNumber = phone };
-                MessageBox.Show("Вы успешно зарегистрировались", "Регистрация завершена", MessageBoxButton.OK, MessageBoxImage.Information);
-                Close();
+                if (user == null)
+                {
+                    User newUser = new User { Name = userNameTextBox.Text, Password = Methods.methods.CalculateHash(userPasswordBox.Password), Email = userEmailTextBox.Text, PhoneNumber = phone };
+                    MessageBox.Show("Вы успешно зарегистрировались", "Регистрация завершена", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Factory.Default.GetRepositoryCRUD<User>().AddItem(newUser);
+                    Close();
+                }
+                else
+                    MessageBox.Show("Данный e-mail уже зарегистрирован", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-                
             else
                 MessageBox.Show("Введите корректный номер", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }

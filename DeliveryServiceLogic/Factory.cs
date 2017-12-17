@@ -38,6 +38,7 @@ namespace DeliveryServiceLogic
 
         private IRepositoryCRUD<OrderedProduct> orderedProductRepo;
         private IRepositoryCRUD<Order> orderRepo;
+        private IRepositoryCRUD<User> userRepo;
 
         public IRepositoryCRUD<T> GetRepositoryCRUD<T>()
         {
@@ -45,6 +46,8 @@ namespace DeliveryServiceLogic
                 return (IRepositoryCRUD<T>)orderedProductRepo ?? ((orderedProductRepo = new OrderedProductRepo()) as IRepositoryCRUD<T>);
             if (typeof(T) == typeof(Order))
                 return (IRepositoryCRUD<T>)orderRepo ?? ((orderRepo = new OrderRepo()) as IRepositoryCRUD<T>);
+            if (typeof(T) == typeof(User))
+                return (IRepositoryCRUD<T>)userRepo ?? ((userRepo = new UserRepo()) as IRepositoryCRUD<T>);
             else
                 throw new Exception("No repository");
         }

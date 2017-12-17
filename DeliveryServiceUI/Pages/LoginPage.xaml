@@ -11,12 +11,12 @@
     <Grid>
         <TextBlock Text="Добро пожаловать в Delivery Service!" Margin="0 -200 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
         <StackPanel Height="50" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 20 0 0" Orientation="Horizontal">
-            <TextBlock Text="Логин:" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="28"/>
-            <TextBox Width="480" FontSize="24" VerticalContentAlignment="Center"  HorizontalAlignment="Right" Margin="3 3 10 3"/>
+            <TextBlock Text="Email:" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="28"/>
+            <TextBox x:Name="txtEmail" Width="480" FontSize="24" VerticalContentAlignment="Center"  HorizontalAlignment="Right" Margin="3 3 10 3"/>
         </StackPanel>
         <StackPanel Height="50" Width="600" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 140 0 0" Orientation="Horizontal">
             <TextBlock Text="Пароль:" Width="110" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="28"/>
-            <PasswordBox Width="480" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="3 3 10 3"/>
+            <PasswordBox x:Name="txtPassword" Width="480" FontSize="24" VerticalContentAlignment="Center" HorizontalAlignment="Right" Margin="3 3 10 3"/>
         </StackPanel>
         <Button x:Name="loginButton"  HorizontalAlignment="Center" Content="Войти" FontSize="25" VerticalAlignment="Center" Margin="0 270 0 0" Width="200" Height="50" Click="loginButton_Click"/>
         <Button x:Name="registerButton"  HorizontalAlignment="Center" Content="Регистрация" FontSize="25" VerticalAlignment="Center" Margin="0 400 0 0" Width="200" Height="50" Click="registerButton_Click" />

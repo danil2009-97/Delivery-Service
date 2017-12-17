@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DeliveryServiceLogic;
 
 namespace DeliveryServiceUI
 {
@@ -20,6 +21,7 @@ namespace DeliveryServiceUI
     /// </summary>
     public partial class LoginPage : Page
     {
+        IEnumerable<User> userRepo = Factory.Default.GetRepositoryCRUD<User>().Data;
         public LoginPage()
         {
             InitializeComponent();
@@ -29,7 +31,23 @@ namespace DeliveryServiceUI
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            LoggedIn?.Invoke();
+            bool isLoginned = false;
+            var email = txtEmail.Text;
+            var password = Methods.methods.CalculateHash(txtPassword.Password);
+            
+            foreach (var item in userRepo)
+            {
+                if (item.Password == password && item.Email == email)
+                {
+                    isLoginned = true;
+                }
+            }
+            if (isLoginned)
+            {
+                LoggedIn?.Invoke();
+            }
+            else
+                MessageBox.Show("Данные введены некорректно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void registerButton_Click(object sender, RoutedEventArgs e)

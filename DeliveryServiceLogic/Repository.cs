@@ -72,7 +72,6 @@ namespace DeliveryServiceLogic
         public virtual void RemoveItem(T item)
         {
             _items.Remove(item);
-
         }
     }
 
@@ -107,7 +106,6 @@ namespace DeliveryServiceLogic
                 context.Set<Order>().Remove(context.Set<Order>().FirstOrDefault(o => ord.Id == o.Id));
                 context.SaveChanges();
             }
-              
             Data.Remove(ord);
         }
 
@@ -123,6 +121,14 @@ namespace DeliveryServiceLogic
 
     public class UserRepo : RepositoryCRUD<User>
     {
+        public UserRepo()
+        {
+            using (var context = new Context())
+            {
+                _items = context.Users.ToList();
+            }
+        }
+
         public override void AddItem(User us)
         {
             using (var context = new Context())
@@ -140,7 +146,6 @@ namespace DeliveryServiceLogic
                 context.Set<User>().Remove(context.Set<User>().FirstOrDefault(o => us.Id == o.Id));
                 context.SaveChanges();
             }
-
             Data.Remove(us);
         }
 
