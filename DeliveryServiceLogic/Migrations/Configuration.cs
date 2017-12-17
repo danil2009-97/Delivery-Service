@@ -13,6 +13,7 @@ namespace DeliveryServiceLogic.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
+
         protected override void Seed(DeliveryServiceLogic.Context context)
         {
             ShopType[] shopTypes =
@@ -868,10 +869,11 @@ namespace DeliveryServiceLogic.Migrations
                 Name = "Папа Джонс",
                 Type = context.ShopTypes.FirstOrDefault(s => s.Id == 1),
                 Rating = 4.2,
-                AvgCheck = 750,
-                Products = new List<Product>(),
                 LogoPath = "/Images/v.jpg",
-{
+                AvgCheck = 750,
+                Products = new List<Product>()
+                
+ {
 new Product
 {
 Name = "Пицца Маргарита",
@@ -1086,7 +1088,6 @@ LogoPath = "/Images/21.jpg"
 }
 } } };
 
-
             ProductType[] productTypes =
             {
                 new ProductType
@@ -1145,9 +1146,10 @@ LogoPath = "/Images/21.jpg"
                 },
             };
 
-            context.ShopTypes.AddOrUpdate(s => s.Id, shopTypes);
+            //context.ShopTypes.AddOrUpdate(s => s.Id, shopTypes);
             //context.Shops.AddOrUpdate(s => s.Name, shops);
-            context.ProductTypes.AddOrUpdate(p => p.Id, productTypes);
+            //context.ProductTypes.AddOrUpdate(p => p.Id, productTypes);
+
         }
     }
 }
