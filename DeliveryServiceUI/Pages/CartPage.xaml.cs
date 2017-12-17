@@ -24,10 +24,9 @@ namespace DeliveryServiceUI
         
         public CartPage()
         {
-            InitializeComponent();            
-            cartListBox.ItemsSource = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data; 
-        }
-              
+            InitializeComponent();
+            RefreshListBox();
+        }              
 
         private void cartListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -39,11 +38,16 @@ namespace DeliveryServiceUI
                 if (res == MessageBoxResult.Yes)
                 {
                     Factory.Default.GetRepositoryCRUD<OrderedProduct>().RemoveItem(pr);
-                    cartListBox.ItemsSource = null;
-                    cartListBox.ItemsSource = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data; 
+                    RefreshListBox();
                 }
                 else { return; }
             }
+        }
+
+        public void RefreshListBox()
+        {
+            cartListBox.ItemsSource = null;
+            cartListBox.ItemsSource = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data;
         }
 
         private void orderButton_Click(object sender, RoutedEventArgs e)

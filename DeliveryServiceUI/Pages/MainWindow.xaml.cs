@@ -45,6 +45,7 @@ namespace DeliveryServiceUI
 
         private void cartButton_Click(object sender, RoutedEventArgs e)
         {
+            PageFactory.Instance.PageRepository.CartPage.RefreshListBox();
             mainFrame.NavigationService.Navigate(PageFactory.Instance.PageRepository.CartPage);
         }
 
