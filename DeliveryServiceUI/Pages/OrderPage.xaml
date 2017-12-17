@@ -10,7 +10,7 @@
       Title="OrderPage">
 
     <Grid>
-        <ListBox x:Name="ordersListBox" MouseDoubleClick="ordersListBox_MouseDoubleClick">
+        <ListBox x:Name="ordersListBox" >
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>

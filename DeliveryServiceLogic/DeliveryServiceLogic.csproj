@@ -61,23 +61,15 @@
     <Compile Include="Entities\OrderedProduct.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductType.cs" />
-    <Compile Include="IRepositoryCRUD.cs" />
+    <Compile Include="Interfaces\IRepositoryCRUD.cs" />
     <Compile Include="Methods.cs" />
-    <Compile Include="Migrations\201712161852435_Initial.cs" />
-    <Compile Include="Migrations\201712161852435_Initial.Designer.cs">
-      <DependentUpon>201712161852435_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Shop.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="GeocodeHelper.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201712171652493_UserId.cs" />
-    <Compile Include="Migrations\201712171652493_UserId.Designer.cs">
-      <DependentUpon>201712171652493_UserId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712171702560_Delivery.cs" />
-    <Compile Include="Migrations\201712171702560_Delivery.Designer.cs">
-      <DependentUpon>201712171702560_Delivery.cs</DependentUpon>
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Migrations\201712171916223_Initial.cs" />
+    <Compile Include="Migrations\201712171916223_Initial.Designer.cs">
+      <DependentUpon>201712171916223_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,14 +86,8 @@
     <Resource Include="MapControl\Microsoft.Maps.MapControl.WPF.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712161852435_Initial.resx">
-      <DependentUpon>201712161852435_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712171652493_UserId.resx">
-      <DependentUpon>201712171652493_UserId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712171702560_Delivery.resx">
-      <DependentUpon>201712171702560_Delivery.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712171916223_Initial.resx">
+      <DependentUpon>201712171916223_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
