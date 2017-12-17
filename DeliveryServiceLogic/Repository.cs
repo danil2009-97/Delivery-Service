@@ -85,6 +85,10 @@ namespace DeliveryServiceLogic
         {
             Data.Remove(op);
         }
+        public void Clear()
+        {
+            Data.Clear();
+        }
     }
 
     public class OrderRepo : RepositoryCRUD<Order>
@@ -109,14 +113,15 @@ namespace DeliveryServiceLogic
             Data.Remove(ord);
         }
 
-        public void UpdateStatus(Order ord)
+        
+        public OrderRepo()
         {
             using (var context = new Context())
             {
-                (context.Set<Order>().FirstOrDefault(o => o.Id == ord.Id)).IsDelivered = true;
-                context.SaveChanges();
+                _items = context.Orders.ToList();
             }
         }
+
     }
 
     public class UserRepo : RepositoryCRUD<User>

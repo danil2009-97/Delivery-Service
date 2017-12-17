@@ -38,9 +38,8 @@ namespace DeliveryServiceUI
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
             var user = userRepo.FirstOrDefault(u => u.Email == userEmailTextBox.Text);
-            string phone = userPhoneTextBox.Text;
-            long num;
-            if (long.TryParse(phone, out num) && phone.Count() == 10)
+            string phone = userPhoneTextBox.Text;            
+            if (Methods.methods.IsNumber(phone, 10))
             {
                 if (user == null)
                 {

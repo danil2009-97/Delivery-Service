@@ -24,11 +24,11 @@
         <TextBlock Text="E-mail:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Grid.Row="1"/>
         <TextBlock Text="Пароль:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Grid.Row="2"/>
         <TextBlock Text="Номер телефона:" Margin="3" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Grid.Row="3"/>
-        <TextBox x:Name="userNameTextBox" Grid.Column="1" Grid.Row="0" Margin="7" VerticalContentAlignment="Center" FontSize="14"/>
-        <TextBox x:Name="userEmailTextBox" Grid.Column="1" IsEnabled="False" Grid.Row="1" Margin="7" VerticalContentAlignment="Center" FontSize="14"/>
-        <PasswordBox x:Name="userPasswordBox" Grid.Column="1" Grid.Row="2" Margin="7" VerticalContentAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="userNameTextBox" Text="{Binding Name}" Grid.Column="1" Grid.Row="0" Margin="7" VerticalContentAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="userEmailTextBox" Text="{Binding Email}" Grid.Column="1" IsEnabled="False" Grid.Row="1" Margin="7" VerticalContentAlignment="Center" FontSize="14"/>
+        <PasswordBox x:Name="userPasswordBox"   Grid.Column="1" Grid.Row="2" Margin="7" VerticalContentAlignment="Center" FontSize="14"/>
         <TextBlock Text="+7" Grid.Column="1" Grid.Row="3" FontSize="14" VerticalAlignment="Center" Margin="3"/>
-        <TextBox x:Name="userPhoneTextBox" Grid.Column="1" Grid.Row="3" Margin="25 7 7 7" VerticalContentAlignment="Center" FontSize="14"/>
+        <TextBox x:Name="userPhoneTextBox"  Text="{Binding PhoneNumber}" Grid.Column="1" Grid.Row="3" Margin="25 7 7 7" VerticalContentAlignment="Center" FontSize="14"/>
         <Button x:Name="changeButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5" Content="Сохранить изменения" Grid.Column="1" Grid.Row="4" Height="30" FontSize="14" Width="150" Click="changeButton_Click"/>
 
     </Grid>

@@ -30,9 +30,11 @@ namespace DeliveryServiceUI
 
         private void cashPaymentButton_Click(object sender, RoutedEventArgs e)
         {
+            _methods.UpdateOPsAndOrders();
             MessageBox.Show("Ваш заказ оформлен (оплата при получении)", "Заказ оформлен", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
             CloseParent?.Invoke();
+            PageFactory.Instance.PageRepository.OrderPage.RefreshListBox();
         }
 
         private void confirmPaymentButton_Click(object sender, RoutedEventArgs e)
@@ -42,19 +44,14 @@ namespace DeliveryServiceUI
                 MessageBox.Show("Оплата проведена успешно", "Заказ оформлен", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
                 CloseParent?.Invoke();
-                var newOrder = new Order
-                {
-                    OrderedTime = DateTime.Now,
-                    DeliveredTime = DateTime.Now.Add(new TimeSpan(0, 10, 0)),
-                    IsDelivered = false,
-                    OrderedProducts = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data,
-                    User = new User()
-                };
-                Factory.Default.GetRepositoryCRUD<Order>().AddItem(newOrder);
+                _methods.UpdateOPsAndOrders();
+                PageFactory.Instance.PageRepository.OrderPage.RefreshListBox();
             }
             else
                 MessageBox.Show("Введите корректные данные", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        
 
         private bool CheckData()
         {

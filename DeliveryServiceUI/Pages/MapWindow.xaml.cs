@@ -90,6 +90,7 @@ namespace DeliveryServiceUI
 
                 var pay = new PaymentWindow();
                 pay.CloseParent += this.Close;
+                pay.CloseParent += PageFactory.Instance.PageRepository.CartPage.RefreshListBox;
                 pay.ShowDialog();
         }
     }

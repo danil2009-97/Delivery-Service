@@ -51,6 +51,7 @@ namespace DeliveryServiceUI
 
         private void ordersButton_Click(object sender, RoutedEventArgs e)
         {
+            PageFactory.Instance.PageRepository.OrderPage.RefreshListBox();
             mainFrame.NavigationService.Navigate(PageFactory.Instance.PageRepository.OrderPage);
         }
 

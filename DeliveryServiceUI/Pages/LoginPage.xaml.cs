@@ -34,16 +34,19 @@ namespace DeliveryServiceUI
             bool isLoginned = false;
             var email = txtEmail.Text;
             var password = Methods.methods.CalculateHash(txtPassword.Password);
-            
+            User currUser = null;
+
             foreach (var item in userRepo)
             {
                 if (item.Password == password && item.Email == email)
                 {
                     isLoginned = true;
+                    currUser = item;
                 }
             }
             if (isLoginned)
             {
+                Factory.Default.LoggedUser = currUser;
                 LoggedIn?.Invoke();
             }
             else

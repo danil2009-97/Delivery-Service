@@ -10,7 +10,7 @@
       Title="OrderPage">
 
     <Grid>
-        <ListBox x:Name="ordersListBox">
+        <ListBox x:Name="ordersListBox" MouseDoubleClick="ordersListBox_MouseDoubleClick">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
@@ -18,21 +18,18 @@
             </ListBox.ItemContainerStyle>
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type logic:Order}">
-                    <Grid Height="80">
+                    <Grid Height="60">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition/>                            
                         </Grid.RowDefinitions>
                         <TextBlock Text="№ заказа:"  HorizontalAlignment="Left" Width="250" />
                         <TextBlock Margin="100 0 3 3" FontWeight="Bold" Text="{Binding Code}"/>
                         <TextBlock Grid.Row="1" Text="Время заказа" HorizontalAlignment="Left" Width="250" />
                         <TextBlock Grid.Row="1" Margin="100 0 3 3" FontWeight="Bold" Text="{Binding OrderedTime}"/>
                         <TextBlock Grid.Row="2" Text="Время доставки:" HorizontalAlignment="Left" Width="250"/>
-                        <TextBlock Grid.Row="2" Margin="100 0 3 3" FontWeight="Bold" Text="{Binding DeliveredTime}"/>
-                        <TextBlock Grid.Row="3" Text="Статус:" HorizontalAlignment="Left" Width="250"/>
-                        <TextBlock Grid.Row="3" Margin="100 0 3 3" FontWeight="Bold" Text="{Binding StatusInfo}"/>
+                        <TextBlock Grid.Row="2" Margin="100 0 3 3" FontWeight="Bold" Text="{Binding DeliveredTime}"/>                        
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

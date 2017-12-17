@@ -71,6 +71,14 @@
     <Compile Include="Factory.cs" />
     <Compile Include="GeocodeHelper.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\201712171652493_UserId.cs" />
+    <Compile Include="Migrations\201712171652493_UserId.Designer.cs">
+      <DependentUpon>201712171652493_UserId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712171702560_Delivery.cs" />
+    <Compile Include="Migrations\201712171702560_Delivery.Designer.cs">
+      <DependentUpon>201712171702560_Delivery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\ShopType.cs" />
@@ -88,6 +96,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712161852435_Initial.resx">
       <DependentUpon>201712161852435_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171652493_UserId.resx">
+      <DependentUpon>201712171652493_UserId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171702560_Delivery.resx">
+      <DependentUpon>201712171702560_Delivery.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

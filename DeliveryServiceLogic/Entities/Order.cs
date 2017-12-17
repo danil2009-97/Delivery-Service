@@ -10,19 +10,15 @@ namespace DeliveryServiceLogic
     {
         public int Id { get; set; }
 
-        public virtual User User { get; set; }
+        public int UserId { get; set; }
 
         public DateTime OrderedTime { get; set; }
 
         public DateTime DeliveredTime { get; set; }
 
-        public bool IsDelivered { get; set; }
-
         public virtual List<OrderedProduct> OrderedProducts { get; set; }
 
         public string Code => $"{Methods.methods.GetString(5)}";
 
-        public string StatusInfo => !IsDelivered ? "В ожидании" : "Доставлен";
-       
     }
 }

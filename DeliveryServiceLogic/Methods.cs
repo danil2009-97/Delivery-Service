@@ -11,10 +11,26 @@ namespace DeliveryServiceLogic
     {
         public static Methods methods = new Methods();
 
+        public void UpdateOPsAndOrders()
+        {
+            var r = new Random();
+            int min = r.Next(40, 80);
+            var newOrder = new Order
+            {
+                OrderedTime = DateTime.Now,
+                DeliveredTime = DateTime.Now.Add(new TimeSpan(0, min, 0)),
+                OrderedProducts = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data,
+                UserId = Factory.Default.GetRepositoryCRUD<User>().Data.FirstOrDefault(u => u.Id == Factory.Default.LoggedUser.Id).Id
+            };
+                        
+            Factory.Default.GetRepositoryCRUD<Order>().AddItem(newOrder);
+            Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data.Clear();
+        }
+
         public bool IsNumber(string txt, int len)
         {
-            int n;
-            if (int.TryParse(txt, out n) && n.ToString().Count() == len)
+            long n;
+            if (long.TryParse(txt, out n) && n.ToString().Count() == len)
                 return true;
             else
                 return false;

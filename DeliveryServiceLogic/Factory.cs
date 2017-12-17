@@ -51,5 +51,14 @@ namespace DeliveryServiceLogic
             else
                 throw new Exception("No repository");
         }
+
+        private User loggedUser;
+
+        public User LoggedUser
+        {
+            get { return loggedUser; }
+            set { loggedUser = value; }
+        }
+
     }
 }

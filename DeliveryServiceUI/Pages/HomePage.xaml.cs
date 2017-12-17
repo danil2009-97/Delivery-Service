@@ -84,6 +84,7 @@ namespace DeliveryServiceUI
         {
             if (shopCategoriesComboBox.SelectedIndex != -1)
             {
+                searchTextBox.IsEnabled = false;
                 var selected = shopCategoriesComboBox.SelectedItem;
                 if (selected is ShopType)
                 {
@@ -101,6 +102,9 @@ namespace DeliveryServiceUI
             }
             else
             {
+                if (sortComboBox.SelectedIndex == -1)
+                    searchTextBox.IsEnabled = true;
+
                 currentShops = shopRepo.Data;
                 if (shopCategoriesComboBox.ItemsSource is IEnumerable<ShopType>)
                     assortmentListBox.ItemsSource = currentShops;
@@ -122,6 +126,7 @@ namespace DeliveryServiceUI
         private void FillListBox()
         {
             int ind = sortComboBox.SelectedIndex;
+            searchTextBox.IsEnabled = false;
             if (ind == 0)
             {
                 var newShopList = currentShops.OrderByDescending(p => p.Rating).ToList();
@@ -139,6 +144,8 @@ namespace DeliveryServiceUI
             }
             if (ind == -1)
             {
+                if (shopCategoriesComboBox.SelectedIndex == -1)
+                    searchTextBox.IsEnabled = true;
                 if (shopCategoriesComboBox.ItemsSource is IEnumerable<ShopType>)
                 {
                     //currentShops = shopRepo.Data;
