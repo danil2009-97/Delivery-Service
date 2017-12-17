@@ -27,11 +27,46 @@ namespace DeliveryServiceUI
             InitializeComponent();
             product = _product;
             DataContext = product;
+            totalPriceTextBox.Text = product.Price.ToString();
+            productQuantityTextBox.Text = "1";
+
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void addToCartButton_Click(object sender, RoutedEventArgs e)
+        {
+            uint n;
+            if (uint.TryParse(productQuantityTextBox.Text, out n))
+            {
+                var newproduct = new OrderedProduct
+                {
+                    Product = product,
+                    Quantity = (int)n
+                };
+                var orderedRepo = Factory.Default.GetRepositoryCRUD<OrderedProduct>();
+                orderedRepo.AddItem(newproduct);
+
+                //save to db
+                Close();
+            }
+            else
+                MessageBox.Show("Введите корректное значение количества", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+
+
+        }
+
+        private void productQuantityTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            uint n;
+            if (uint.TryParse(productQuantityTextBox.Text, out n))
+                totalPriceTextBox.Text = (n * product.Price).ToString();
+            else
+                totalPriceTextBox.Text = "";
+
         }
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\RandomCode.cs" />
+    <Compile Include="IRepositoryCRUD.cs" />
     <Compile Include="Migrations\201712161852435_Initial.cs" />
     <Compile Include="Migrations\201712161852435_Initial.Designer.cs">
       <DependentUpon>201712161852435_Initial.cs</DependentUpon>

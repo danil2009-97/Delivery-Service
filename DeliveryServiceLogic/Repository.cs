@@ -27,8 +27,6 @@ namespace DeliveryServiceLogic
                 _items = context.Shops.Include("Products").Include("Type").Include("Products.Type").ToList();
             }
         }
-
-        
     }
 
     public class ProductRepository : Repository<Product>
@@ -57,11 +55,41 @@ namespace DeliveryServiceLogic
     {
         public ProductTypeRepo()
         {
-            using(var context = new Context())
+            using (var context = new Context())
             {
                 _items = context.ProductTypes.ToList();
             }
         }
     }
+
+    public class RepositoryCRUD<T> : Repository<T>, IRepositoryCRUD<T>
+    {
+        public virtual void AddItem(T item)
+        {
+            _items.Add(item);
+        }
+
+        public void RemoveItem(T item)
+        {
+            _items.Remove(item);
+            
+        }
+    }
+
+    public class OrderedProductRepo : RepositoryCRUD<OrderedProduct>
+    {
+        public override void AddItem(OrderedProduct op)
+        {
+            using (var context = new Context())
+            {
+                context.OrderedProducts.Add(op);
+                _items.Add(op);
+            }
+            
+        }
+    }
+ 
+
+    
 
 }

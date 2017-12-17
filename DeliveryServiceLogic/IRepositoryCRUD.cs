@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DeliveryServiceLogic
 {
-    public interface IRepository<T> 
+    public interface IRepositoryCRUD<T> : IRepository<T>
     {
-        IEnumerable<T> Data { get; }
-        IEnumerable<T> FindAll(Predicate<T> predicate);
+        void AddItem(T item);
+        void RemoveItem(T item);
     }
 }
