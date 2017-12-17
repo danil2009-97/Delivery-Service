@@ -27,12 +27,12 @@ namespace DeliveryServiceUI
             PageFactory.Instance.PageRepository.LoginPage.LoggedIn += NavigateToHome;
         }
 
-
+        
         private void homeButton_Click(object sender, RoutedEventArgs e)
         {
             PageFactory.Instance.PageRepository.HomePage.RefreshShopListBox();
             mainFrame.Navigate(PageFactory.Instance.PageRepository.HomePage);
-
+            
         }
 
         private void NavigateToHome()

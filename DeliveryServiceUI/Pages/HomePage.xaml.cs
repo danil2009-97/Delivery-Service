@@ -24,42 +24,46 @@ namespace DeliveryServiceUI
 
         IRepository<Product> productRepo = Factory.Default.GetRepository<Product>();
         IRepository<Shop> shopRepo = Factory.Default.GetRepository<Shop>();
+        IRepository<ShopType> shopTypeRepo = Factory.Default.GetRepository<ShopType>();
+        IRepository<ProductType> productTypeRepo = Factory.Default.GetRepository<ProductType>();
 
         public HomePage()
         {
             InitializeComponent();
-            shopCategoriesComboBox.ItemsSource = FillTypesPlsThx();
+            shopCategoriesComboBox.ItemsSource = shopTypeRepo.Data;
             sortComboBox.ItemsSource = SortList();
-            assortmentListBox.ItemsSource = shopRepo.Data;
+            currentShops = shopRepo.Data;
+            assortmentListBox.ItemsSource = currentShops;
         }
 
         public void RefreshShopListBox()
         {
-            assortmentListBox.ItemsSource = shopRepo.Data;
+            currentShops = shopRepo.Data;
+            assortmentListBox.ItemsSource = currentShops;            
+            shopCategoriesComboBox.ItemsSource = shopTypeRepo.Data;
+            shopCategoriesComboBox.SelectedIndex = -1;
+            sortComboBox.Visibility = Visibility.Visible;
+            searchTextBox.Visibility = Visibility.Visible;
+            sortTextBlock.Visibility = Visibility.Visible;
+            searchTextBox.Text = "";
         }
 
-        private List<string> FillTypesPlsThx()
-        {
-            var lstr = new List<string> { "Мексика", "Суши"};
-            return lstr;
-        }
 
         private List<string> SortList()
         {
-            return new List<string> { "по рейтингу", "по цене (убыв.)", "по цене(возр.)", "по среднему чеку" };
-        }
-
-        private void assortmentListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            return new List<string> { "по рейтингу", "по среднему чеку (убыв.)", "по среднему чеку (возр.)" };
         }
 
         private void assortmentListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (assortmentListBox.SelectedItem is Shop)
             {
-                var selected = assortmentListBox.SelectedItem as Shop;
-                assortmentListBox.ItemsSource = selected.Products;
+                chosenShop = assortmentListBox.SelectedItem as Shop;
+                assortmentListBox.ItemsSource = chosenShop.Products;
+                shopCategoriesComboBox.ItemsSource = productTypeRepo.Data;
+                sortComboBox.Visibility = Visibility.Hidden;
+                searchTextBox.Visibility = Visibility.Hidden;
+                sortTextBlock.Visibility = Visibility.Hidden;
             }
             else if (assortmentListBox.SelectedItem is Product)
             {
@@ -76,6 +80,80 @@ namespace DeliveryServiceUI
                 assortmentListBox.ItemsSource = shopRepo.Data;
             else
                 assortmentListBox.ItemsSource = shopRepo.FindAll(p => p.Name.ToLower().Contains(text));
+        }
+
+        private void shopCategoriesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (shopCategoriesComboBox.SelectedIndex != -1)
+            {
+                var selected = shopCategoriesComboBox.SelectedItem;
+                if (selected is ShopType)
+                {
+                    var shopSelected = shopCategoriesComboBox.SelectedItem as ShopType;
+                    assortmentListBox.ItemsSource = null;
+                    currentShops = shopRepo.FindAll(p => p.Type.Name == shopSelected.Name).ToList();
+                    FillListBox();
+                }
+                else if (selected is ProductType)
+                {
+                    var productSelected = shopCategoriesComboBox.SelectedItem as ProductType;
+                    var products = chosenShop.Products;
+                    assortmentListBox.ItemsSource = products.FindAll(p => p.Type.Name == productSelected.Name);
+                }
+            }
+            else
+            {
+                currentShops = shopRepo.Data;
+                if (shopCategoriesComboBox.ItemsSource is IEnumerable<ShopType>)
+                    assortmentListBox.ItemsSource = currentShops;
+                else
+                    assortmentListBox.ItemsSource = chosenShop.Products;
+            }
+        }
+
+        Shop chosenShop = null;
+        IEnumerable<Shop> currentShops;
+
+        private void dropFilterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            shopCategoriesComboBox.SelectedIndex = -1;
+            sortComboBox.SelectedIndex = -1;
+            searchTextBox.Text = "";
+        }
+
+        private void FillListBox()
+        {
+            int ind = sortComboBox.SelectedIndex;
+            if (ind == 0)
+            {
+                var newShopList = currentShops.OrderByDescending(p => p.Rating).ToList();
+                assortmentListBox.ItemsSource = newShopList;
+            }
+            if (ind == 1)
+            {
+                var newShopList = currentShops.OrderByDescending(p => p.AvgCheck).ToList();
+                assortmentListBox.ItemsSource = newShopList;
+            }
+            if (ind == 2)
+            {
+                var newShopList = currentShops.OrderBy(p => p.AvgCheck).ToList();
+                assortmentListBox.ItemsSource = newShopList;
+            }
+            if (ind == -1)
+            {
+                if (shopCategoriesComboBox.ItemsSource is IEnumerable<ShopType>)
+                {
+                    //currentShops = shopRepo.Data;
+                    assortmentListBox.ItemsSource = currentShops;
+                }
+                else
+                    assortmentListBox.ItemsSource = chosenShop.Products;
+            }
+        }
+
+        private void sortComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FillListBox();
         }
     }
 }

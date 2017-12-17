@@ -27,6 +27,8 @@ namespace DeliveryServiceLogic
                 _items = context.Shops.Include("Products").Include("Type").Include("Products.Type").ToList();
             }
         }
+
+        
     }
 
     public class ProductRepository : Repository<Product>
@@ -39,4 +41,27 @@ namespace DeliveryServiceLogic
             }
         }
     }
+
+    public class ShopTypeRepo : Repository<ShopType>
+    {
+        public ShopTypeRepo()
+        {
+            using(var context = new Context())
+            {
+                _items = context.ShopTypes.ToList();
+            }
+        }
+    }
+
+    public class ProductTypeRepo : Repository<ProductType>
+    {
+        public ProductTypeRepo()
+        {
+            using(var context = new Context())
+            {
+                _items = context.ProductTypes.ToList();
+            }
+        }
+    }
+
 }
