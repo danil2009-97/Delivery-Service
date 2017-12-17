@@ -126,11 +126,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PaymentWindow.xaml">
+    <Page Include="Pages\PaymentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ProfilePage.xaml">
+    <Page Include="Pages\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,10 +141,10 @@
     </Compile>
     <Compile Include="PageFactory.cs" />
     <Compile Include="PageRepository.cs" />
-    <Compile Include="PaymentWindow.xaml.cs">
+    <Compile Include="Pages\PaymentWindow.xaml.cs">
       <DependentUpon>PaymentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProfilePage.xaml.cs">
+    <Compile Include="Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">

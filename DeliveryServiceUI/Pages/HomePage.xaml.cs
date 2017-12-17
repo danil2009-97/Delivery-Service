@@ -21,7 +21,6 @@ namespace DeliveryServiceUI
     /// </summary>
     public partial class HomePage : Page
     {
-
         IRepository<Product> productRepo = Factory.Default.GetRepository<Product>();
         IRepository<Shop> shopRepo = Factory.Default.GetRepository<Shop>();
         IRepository<ShopType> shopTypeRepo = Factory.Default.GetRepository<ShopType>();
@@ -47,7 +46,6 @@ namespace DeliveryServiceUI
             sortTextBlock.Visibility = Visibility.Visible;
             searchTextBox.Text = "";
         }
-
 
         private List<string> SortList()
         {

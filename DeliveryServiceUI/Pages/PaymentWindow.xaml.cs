@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DeliveryServiceLogic;
 
 namespace DeliveryServiceUI
 {
@@ -20,7 +21,8 @@ namespace DeliveryServiceUI
     public partial class PaymentWindow : Window
     {
         public event Action CloseParent;
-
+        Methods _methods = new Methods();
+       
         public PaymentWindow()
         {
             InitializeComponent();
@@ -40,25 +42,26 @@ namespace DeliveryServiceUI
                 MessageBox.Show("Оплата проведена успешно", "Заказ оформлен", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
                 CloseParent?.Invoke();
+                var newOrder = new Order
+                {
+                    OrderedTime = DateTime.Now,
+                    DeliveredTime = DateTime.Now.Add(new TimeSpan(0, 10, 0)),
+                    IsDelivered = false,
+                    OrderedProducts = Factory.Default.GetRepositoryCRUD<OrderedProduct>().Data,
+                    User = new User()
+                };
+                Factory.Default.GetRepositoryCRUD<Order>().AddItem(newOrder);
             }
             else
                 MessageBox.Show("Введите корректные данные", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-
         }
 
         private bool CheckData()
         {
-            return (IsNumber(firstFourTextBox.Text, 4) && IsNumber(secondFourTextBox.Text, 4)
-                && IsNumber(thirdFourTextBox.Text, 4) && IsNumber(fourthFourTextBox.Text, 4) && IsNumber(cvvTextBox.Text, 3));
+            return (_methods.IsNumber(firstFourTextBox.Text, 4) && _methods.IsNumber(secondFourTextBox.Text, 4)
+                && _methods.IsNumber(thirdFourTextBox.Text, 4) && _methods.IsNumber(fourthFourTextBox.Text, 4) && _methods.IsNumber(cvvTextBox.Text, 3));
         }
 
-        private bool IsNumber(string txt,int len)
-        {
-            int n;
-            if (int.TryParse(txt, out n) && n.ToString().Count() == len)
-                return true;
-            else
-                return false;
-        }
+        
     }
 }

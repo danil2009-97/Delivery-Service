@@ -88,6 +88,22 @@ namespace DeliveryServiceLogic
         }
     }
 
+    public class OrderRepo : RepositoryCRUD<Order>
+    { 
+        public override void AddItem(Order ord)
+        {
+            using (var context = new Context())
+                context.Set<Order>().Add(ord);
+            Data.Add(ord);
+        }
+        public override void RemoveItem(Order ord)
+        {
+            using (var context = new Context())
+                context.Set<Order>().Remove(ord);
+            Data.Remove(ord);
+        }
+    }
+
 
 
 

@@ -61,12 +61,36 @@ namespace DeliveryServiceUI
 
         private void confirmAddressButton_Click(object sender, RoutedEventArgs e)
         {
-            if (true)
+            if (string.IsNullOrEmpty(cityTextBox.Text))
             {
+                MessageBox.Show("Необходимо ввести город", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                cityTextBox.Focus();
+                return;
+            }
+            if (string.IsNullOrEmpty(addressTextBox.Text))
+            {
+                MessageBox.Show("Необходимо ввести адрес доставки", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                addressTextBox.Focus();
+                return;
+            }
+
+            int n;
+            if (!int.TryParse(flatTextBox.Text, out n))
+            {
+                MessageBox.Show("Необходимо ввести номер квартиры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                addressTextBox.Focus();
+                return;
+            }
+            if (cityTextBox.Text != "Moscow" && cityTextBox.Text != "Москва")
+            {
+                MessageBox.Show("К сожалению, мы работаем только в Москве(Moscow)", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                cityTextBox.Focus();
+                return;
+            }
+
                 var pay = new PaymentWindow();
                 pay.CloseParent += this.Close;
                 pay.ShowDialog();
-            }
         }
     }
 }

@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace DeliveryServiceLogic
 {
-    public class RandomCode
+    public class Methods
     {
-        public static RandomCode rs = new RandomCode();
+        public static Methods methods = new Methods();
 
+        public bool IsNumber(string txt, int len)
+        {
+            int n;
+            if (int.TryParse(txt, out n) && n.ToString().Count() == len)
+                return true;
+            else
+                return false;
+        }
+        
         public static Random random = new Random((int)DateTime.Now.Ticks);
+
         public string GetString(int size)
         {
             StringBuilder builder = new StringBuilder();
@@ -23,5 +33,7 @@ namespace DeliveryServiceLogic
 
             return builder.ToString();
         }
-    }
+        
+    }            
+    
 }

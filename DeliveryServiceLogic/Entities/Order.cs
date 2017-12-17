@@ -20,7 +20,7 @@ namespace DeliveryServiceLogic
 
         public virtual List<OrderedProduct> OrderedProducts { get; set; }
 
-        public string Code => $"{RandomCode.rs.GetString(5)}";
+        public string Code => $"{Methods.methods.GetString(5)}";
 
         public string StatusInfo => !IsDelivered ? "В ожидании" : "Доставлен";
        
