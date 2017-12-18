@@ -1,0 +1,16 @@
+# DeliveryService
+-
+-Для корректной работы базы данных после скачивания программы необходимо дважды осуществить Update-Database. В первый раз последние строки метода
+-Seed() должны выглядеть следующим образом:
+-
+- 	       context.ShopTypes.AddOrUpdate(s => s.Id, shopTypes);            
+-	        //context.Shops.AddOrUpdate(s => s.Name, shops);            
+-	        context.ProductTypes.AddOrUpdate(p => p.Id, productTypes);
+-
+-Затем необходимо изменить строки следующим образом и повторить Update-Database:
+-
+-         //context.ShopTypes.AddOrUpdate(s => s.Id, shopTypes);           
+-	       context.Shops.AddOrUpdate(s => s.Name, shops);            
+-	       //context.ProductTypes.AddOrUpdate(p => p.Id, productTypes);
+-
+-После данных действий база данных приложения будет заполнена корректно.
